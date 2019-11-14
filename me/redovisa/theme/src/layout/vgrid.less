@@ -1,0 +1,236 @@
+/**
+*Layout using vgrid.
+*/
+
+/**
+*variables.
+*/
+
+/**
+* General layout
+*/
+
+.row {
+    #desinax-vgrid.row();
+//    background-color: #0f0;
+    margin-bottom: 12px;
+}
+
+// Variables
+
+ .rm-desktop ul {
+     display:  block;
+ }
+
+ /* Hide responsive/mobile menu, leave this to kmom02 */
+ .rm-navbar-max {
+     display: block;
+ }
+
+/**
+ * General layout
+ */
+.inner-wrap {
+    #desinax-vgrid.grid(1100px);
+//    max-width: 800px;
+//    margin: 0 auto;
+    // background-color: #ccc;
+}
+
+// .wrap-all {
+//     max-width: 90%;
+//     margin: 0 auto;
+//     background-color: lightblue;
+// }
+
+.outer-wrap-header {
+    #desinax-vgrid.grid(100%);
+    // background-color: 333;
+    //overflow: auto;
+//    .clearfix();
+}
+
+.inner-wrap-header {
+    #desinax-vgrid.grid(100%);
+//    max-width: 100%;
+}
+
+.vgrid .inner-wrap {
+    @gridImage: "../img/grid_24x30x10-nomargin.png";
+    //@gridImage: "../img/grid_12x60x20-nomargin.png";
+    #desinax-vgrid.showGrid(@gridImage, 1100px);
+
+    &.inner-wrap-header {
+        #desinax-vgrid.showGrid(@gridImage);
+    }
+}
+
+.region-header-col-1,
+.region-header-col-3 {
+    #desinax-vgrid.column(5);
+//    width: 31%;
+//    float: left;
+}
+
+.region-header-col-2 {
+    #desinax-vgrid.column(14);
+//    width: 38%;
+//    float: left;
+    text-align: center;
+}
+
+.region-flash {
+    #desinax-vgrid.column(@columns);
+}
+
+.region-breadcrumb {
+    #desinax-vgrid.column(@columns);
+}
+
+.site-logo {
+    display: none;
+}
+
+// .inner-wrap-header,
+// .inner-wrap-footer {
+//     #desinax-vgrid.grid(100%);
+// }
+
+
+.footer-column {
+    #desinax-vgrid.column(@columns / 3);
+
+    //width: 33%;
+//    float: left;
+//    border: 1px solid white;
+//    height: 200px;
+}
+
+.outer-wrap-footer {
+    background-color: #333;
+}
+
+.inner-wrap-footer {
+    background-color: #333;
+    color: white;
+}
+
+// .region-flash img {
+//     width: 800px;
+//     height: 150px;
+// }
+
+.inner-wrap-main {
+    //.clearfix();
+    //overflow: auto;
+}
+
+.region-sidebar-left,
+.region-sidebar-right {
+    #desinax-vgrid.column(@columns * 1 / 4);
+    //width: 30%;
+    //float: left;
+}
+
+.region-sidebar-left.has-sidebar-right,
+.region-sidebar-right.has-sidebar-left {
+    #desinax-vgrid.column(@columns * 1 / 4 - 1);
+//    width: 20%;
+}
+
+.region-main {
+    #desinax-vgrid.column(@columns * 3 / 4);
+    #desinax-vgrid.push(2);
+    //width: 70%;
+    //float: left;
+    //margin-left: 10%;
+    //overflow: auto;
+
+    &.has-sidebar {
+        #desinax-vgrid.push(0);
+    //    margin-left: 0;
+    }
+
+    &.has-sidebar-right {
+        #desinax-vgrid.column(@columns * 3 / 4 - 1);
+    }
+
+    &.has-sidebar-left.has-sidebar-right {
+        // @columns - 10 på slutet i videon
+        #desinax-vgrid.column(@columns * 3 / 4 - 6);
+    //    width: 60%;
+    }
+}
+
+.region-sidebar-right {
+    #desinax-vgrid.push(1);
+}
+
+/**
+*   Responsive 1, 2 , 3
+*/
+@media screen and (max-width: 1000px) {
+    .region-main {
+        #desinax-vgrid.column(@columns);
+
+        &.has-sidebar-left.has-sidebar-right {
+    // @columns - 10 på slutet i videon
+    #desinax-vgrid.column(@columns);
+//    width: 60%;
+    }
+}
+    .region-sidebar-left {
+        // denna tar hand om redovisningstext spannet, lägg på @columns för att späänna över hela
+        #desinax-vgrid.column(@columns);
+    //width: 30%;
+    //float: left;
+}
+
+.region-sidebar-left.has-sidebar-right,
+.region-sidebar-right.has-sidebar-left {
+    #desinax-vgrid.column(@columns);
+//    width: 20%;
+}
+
+}
+
+@media screen and (max-width: 850px) {
+    .region-main.has-sidebar-right {
+        #desinax-vgrid.column(@columns);
+    }
+    .region-sidebar-right {
+        #desinax-vgrid.column(@columns);
+        #desinax-vgrid.push(0);
+        //width: 30%;
+        //float: left;
+    }
+}
+
+
+// #desinax-vgrid.column(@columns);
+//     }
+// }
+
+.site-footer {
+    #desinax-vgrid.column(@columns);
+}
+
+ul {
+    list-style-type: none;
+//    margin: 0;
+    padding: 0;
+    //overflow: hidden;
+    background-color: #333;
+    color: white;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: lightblue;
+}
